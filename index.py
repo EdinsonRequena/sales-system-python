@@ -57,10 +57,8 @@ class Product:
         # consulting data
         query =  'SELECT * FROM products ORDER BY name DESC'
         database_rows = self.execute_query(query)
-        print(database_rows)
 
         for rows in database_rows:
-            print(rows)
             self.table.insert('', 0, text = rows[1], values = rows[2])
 
 
