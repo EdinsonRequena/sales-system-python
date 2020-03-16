@@ -26,7 +26,7 @@ class Product:
         self.price.grid(row = 2, column = 1)
 
         #Button for save product
-        ttk.Button(frame, text = 'Save Product').grid(row = 3, columnspan = 2, sticky = W + E)
+        ttk.Button(frame, text = 'Save Product', command = self.add_product).grid(row = 3, columnspan = 2, sticky = W + E)
         
         #Table
         self.table = ttk.Treeview(height = 10, columns = 2)
@@ -60,6 +60,19 @@ class Product:
             self.table.insert('', 0, text = rows[1], values = rows[2])
 
 
+    def validate(self):
+        return len(self.name.get()) != 0 and len(self.price.get()) != 0
+    
+
+    def add_product(self):
+        if self.validate():
+            query = 'INSERT INTO products VALUES (NULL, ?, ?)'
+            data = (self.name.get(), self.price.get())
+            self.execute_query(query, data)
+            print('Nice!!!')
+        else:
+            print('enter the required data')
+        self.obtain_product()
 
 if __name__ == '__main__':
     window = Tk()
