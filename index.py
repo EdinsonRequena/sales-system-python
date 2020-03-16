@@ -47,6 +47,7 @@ class Product:
             act.commit()
         return result
 
+
     def obtain_product(self):
         # cleared the table
         elements = self.table.get_children()
