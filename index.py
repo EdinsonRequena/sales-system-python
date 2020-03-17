@@ -40,6 +40,7 @@ class Product:
 
         self.obtain_product()
 
+
     def execute_query(self, query, data = ()):
         with sqlite3.connect(self.data_base) as act:
             cursor = act.cursor()
