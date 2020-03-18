@@ -11,7 +11,7 @@ class Product:
         self.window.title('Sales app')
 
         #Frame Container
-        frame = LabelFrame(self.window, text = 'Register a new product')
+        frame = LabelFrame(self.window, text = 'Welcome to the sales system')
         frame.grid(row = 0, column = 0, columnspan = 3, pady = 20)
 
         #Name Input
@@ -28,6 +28,7 @@ class Product:
         #Button for save product
         ttk.Button(frame, text = 'Save Product', command = self.add_product).grid(row = 3, columnspan = 2, sticky = W + E)
         ttk.Button(frame, text = 'Delete Product', command = self.delete_product).grid(row = 4, columnspan = 2, sticky = W + E)
+        ttk.Button(frame, text = 'Edit Product', command = self.update_product).grid(row = 5, columnspan = 2, sticky = W + E)
 
         #Messages
         self.message = Label(text = '', fg = 'blue')
@@ -81,9 +82,12 @@ class Product:
             self.message['text'] = 'enter the required data'
         self.obtain_product()
 
+
     def delete_product(self):
         pass
 
+    def update_product(self):
+        pass
 
 if __name__ == '__main__':
     window = Tk()
