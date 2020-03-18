@@ -27,7 +27,8 @@ class Product:
 
         #Button for save product
         ttk.Button(frame, text = 'Save Product', command = self.add_product).grid(row = 3, columnspan = 2, sticky = W + E)
-        
+        ttk.Button(frame, text = 'Delete Product', command = self.delete_product).grid(row = 4, columnspan = 2, sticky = W + E)
+
         #Messages
         self.message = Label(text = '', fg = 'blue')
         self.message.grid(row = 3, column = 0, columnspan = 2, sticky = W + E)
@@ -79,6 +80,10 @@ class Product:
         else:
             self.message['text'] = 'enter the required data'
         self.obtain_product()
+
+    def delete_product(self):
+        pass
+
 
 if __name__ == '__main__':
     window = Tk()
