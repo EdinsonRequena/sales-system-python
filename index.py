@@ -84,7 +84,18 @@ class Product:
 
 
     def delete_product(self):
-        pass
+        self.message['text'] = ''
+        try:
+            self.table.item(self.table.selection())['text'][0]
+        except IndexError as error:
+            self.message['text'] = 'Please select a product'
+            return
+        self.message['text'] = ''
+        name = self.table.item(self.table.selection())['text']
+        query = 'DELETE FROM products WHERE name = ?'
+        self.execute_query(query, (name, ))
+        self.message['text'] = f'Product {name} has been deleted successfuly'
+        self.obtain_product()
 
     def update_product(self):
         pass
