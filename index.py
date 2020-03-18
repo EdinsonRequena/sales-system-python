@@ -83,7 +83,7 @@ class Product:
         self.obtain_product()
 
 
-    def delete_product(self):
+    def select_product(self):
         self.message['text'] = ''
         try:
             self.table.item(self.table.selection())['text'][0]
@@ -91,6 +91,11 @@ class Product:
             self.message['text'] = 'Please select a product'
             return
         self.message['text'] = ''
+
+
+    def delete_product(self):
+        self.select_product()
+
         name = self.table.item(self.table.selection())['text']
         query = 'DELETE FROM products WHERE name = ?'
         self.execute_query(query, (name, ))
