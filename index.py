@@ -139,6 +139,18 @@ class Product:
         new_price = Entry(self.edit_window)
         new_price.grid(row = 3, column = 2)
 
+        # Button to save changes
+        Button(self.edit_window, text = 'Save Changes', command = lambda: self.save_changes)
+
+
+    def save_changes(self, current_name, new_name, current_price, new_price):
+        query = 'UPDATE products SET name = ?, price = ? WHERE name = ? AND price = ?'
+        data = (current_name, new_name, current_price, new_price)
+        self.execute_query(query, data)
+        self.edit_window.destroy()
+        self.mesage['text'] = f'Product {self.name} has been update succesfuly'
+        self.obtain_product()
+
 if __name__ == '__main__':
     window = Tk()
     application = Product(window)
