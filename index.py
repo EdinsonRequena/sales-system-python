@@ -96,10 +96,10 @@ class Product:
     def delete_product(self):
         self.select_product()
 
-        name = self.table.item(self.table.selection())['text']
+        self.name = self.table.item(self.table.selection())['text']
         query = 'DELETE FROM products WHERE name = ?'
-        self.execute_query(query, (name, ))
-        self.message['text'] = f'Product {name} has been deleted successfuly'
+        self.execute_query(query, (self.name, ))
+        self.message['text'] = f'Product {self.name} has been deleted successfuly'
 
         self.obtain_product()
 
@@ -108,7 +108,7 @@ class Product:
         self.select_product()
 
         self.edit_name = self.table.item(self.table.selection())['text']
-        edit_price = self.table.item(self.table.selection())['values'][0]
+        self.edit_price = self.table.item(self.table.selection())['values'][0]
 
         self.update_interface()
 
@@ -121,6 +121,9 @@ class Product:
         Label(self.edit_window, text = 'Current Name: ').grid(row = 0, column = 1)
         Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.edit_name), state = 'readonly').grid(row = 0, column = 2)
 
+        Label(self.edit_window, text = 'New Name: ').grid(row = 1, column = 1)
+        new_name = Entry(self.edit_window)
+        new_name.grid(row = 1, column = 2)
 
 if __name__ == '__main__':
     window = Tk()
