@@ -125,8 +125,8 @@ class Product:
         Label(self.edit_window, text = 'Enter the New Name: ').grid(row = 1, column = 1)
 
         # New name entry
-        new_name = Entry(self.edit_window)
-        new_name.grid(row = 1, column = 2)
+        self.new_name = Entry(self.edit_window)
+        self.new_name.grid(row = 1, column = 2)
 
         # Current price
         Label(self.edit_window, text = 'Current Price: ').grid(row = 2, column = 1)
@@ -136,11 +136,12 @@ class Product:
         Label(self.edit_window, text = 'Enter the New Price').grid(row = 3, column = 1)
 
         # New price entry
-        new_price = Entry(self.edit_window)
-        new_price.grid(row = 3, column = 2)
+        self.new_price = Entry(self.edit_window)
+        self.new_price.grid(row = 3, column = 2)
 
         # Button to save changes
-        Button(self.edit_window, text = 'Save Changes', command = lambda: self.save_changes)
+        save_button = Button(self.edit_window, text = 'Save Changes', command = lambda: self.save_changes(self.current_name, self.new_name.get(), self.current_price, self.new_price.get()))
+        save_button.grid(row = 4, column = 2, sticky = W + E)
 
 
     def save_changes(self, current_name, new_name, current_price, new_price):
@@ -148,7 +149,7 @@ class Product:
         data = (current_name, new_name, current_price, new_price)
         self.execute_query(query, data)
         self.edit_window.destroy()
-        self.mesage['text'] = f'Product {self.current_name} has been update succesfuly'
+        self.message['text'] = f'Product {new_name} has been update succesfuly'
         self.obtain_product()
 
 if __name__ == '__main__':
