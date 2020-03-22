@@ -112,6 +112,14 @@ class Product:
         self.edit_window = Toplevel()
         self.edit_window.title = 'Edit The Product'
 
+    
+    def update_interface(self):
+        # window update
+        self.edit_window = Toplevel()
+        self.edit_window.title = 'Edit The Product'
+        
+           
+
 if __name__ == '__main__':
     window = Tk()
     application = Product(window)
