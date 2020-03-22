@@ -103,10 +103,11 @@ class Product:
 
         self.obtain_product()
 
+
     def update_product(self):
         self.select_product()
 
-        edit_name = self.table.item(self.table.selection())['text']
+        self.edit_name = self.table.item(self.table.selection())['text']
         edit_price = self.table.item(self.table.selection())['values'][0]
 
         self.update_interface()
@@ -117,6 +118,8 @@ class Product:
         self.edit_window = Toplevel()
         self.edit_window.title = 'Edit The Product'
 
+        Label(self.edit_window, text = 'Current Name: ').grid(row = 0, column = 1)
+        Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.edit_name), state = 'readonly').grid(row = 0, column = 2)
 
 
 if __name__ == '__main__':
