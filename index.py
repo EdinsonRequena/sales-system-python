@@ -114,7 +114,6 @@ class Product:
 
     
     def update_interface(self):
-        # Window update
         self.edit_window = Toplevel()
         self.edit_window.title = 'Edit The Product'
         
@@ -135,7 +134,7 @@ class Product:
 
         # New Price label
         Label(self.edit_window, text = 'Enter the New Price').grid(row = 3, column = 1)
-        
+
         # New price entry
         new_price = Entry(self.edit_window)
         new_price.grid(row = 3, column = 2)
