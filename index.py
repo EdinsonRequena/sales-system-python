@@ -114,16 +114,21 @@ class Product:
 
     
     def update_interface(self):
-        # window update
+        # Window update
         self.edit_window = Toplevel()
         self.edit_window.title = 'Edit The Product'
-
+        
+        # Current name
         Label(self.edit_window, text = 'Current Name: ').grid(row = 0, column = 1)
         Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.edit_name), state = 'readonly').grid(row = 0, column = 2)
-
+        
+        # New name
         Label(self.edit_window, text = 'New Name: ').grid(row = 1, column = 1)
         new_name = Entry(self.edit_window)
         new_name.grid(row = 1, column = 2)
+
+        # Current price
+        Label(self.edit_window, text = 'Current Price: ').grid(row = 1, column = 1)
 
 if __name__ == '__main__':
     window = Tk()
