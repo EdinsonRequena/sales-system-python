@@ -129,6 +129,7 @@ class Product:
 
         # Current price
         Label(self.edit_window, text = 'Current Price: ').grid(row = 1, column = 1)
+        Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.edit_price), state = 'readonly').grid(row = 1, column = 2)
 
 if __name__ == '__main__':
     window = Tk()
