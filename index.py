@@ -109,16 +109,15 @@ class Product:
         edit_name = self.table.item(self.table.selection())['text']
         edit_price = self.table.item(self.table.selection())['values'][0]
 
-        self.edit_window = Toplevel()
-        self.edit_window.title = 'Edit The Product'
+        self.update_interface()
 
     
     def update_interface(self):
         # window update
         self.edit_window = Toplevel()
         self.edit_window.title = 'Edit The Product'
-        
-           
+
+
 
 if __name__ == '__main__':
     window = Tk()
