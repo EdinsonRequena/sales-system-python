@@ -122,8 +122,10 @@ class Product:
         Label(self.edit_window, text = 'Current Name: ').grid(row = 0, column = 1)
         Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.edit_name), state = 'readonly').grid(row = 0, column = 2)
         
-        # New name
+        # New name label
         Label(self.edit_window, text = 'Enter the New Name: ').grid(row = 1, column = 1)
+
+        # New name entry
         new_name = Entry(self.edit_window)
         new_name.grid(row = 1, column = 2)
 
@@ -131,8 +133,10 @@ class Product:
         Label(self.edit_window, text = 'Current Price: ').grid(row = 2, column = 1)
         Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.edit_price), state = 'readonly').grid(row = 2, column = 2)
 
-        # New Price
+        # New Price label
         Label(self.edit_window, text = 'Enter the New Price').grid(row = 3, column = 1)
+        
+        # New price entry
         new_price = Entry(self.edit_window)
         new_price.grid(row = 3, column = 2)
 
