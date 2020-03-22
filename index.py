@@ -107,8 +107,8 @@ class Product:
     def update_product(self):
         self.select_product()
 
-        self.edit_name = self.table.item(self.table.selection())['text']
-        self.edit_price = self.table.item(self.table.selection())['values'][0]
+        self.current_name = self.table.item(self.table.selection())['text']
+        self.current_price = self.table.item(self.table.selection())['values'][0]
 
         self.update_interface()
 
@@ -119,7 +119,7 @@ class Product:
         
         # Current name
         Label(self.edit_window, text = 'Current Name: ').grid(row = 0, column = 1)
-        Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.edit_name), state = 'readonly').grid(row = 0, column = 2)
+        Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.current_name), state = 'readonly').grid(row = 0, column = 2)
         
         # New name label
         Label(self.edit_window, text = 'Enter the New Name: ').grid(row = 1, column = 1)
@@ -130,7 +130,7 @@ class Product:
 
         # Current price
         Label(self.edit_window, text = 'Current Price: ').grid(row = 2, column = 1)
-        Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.edit_price), state = 'readonly').grid(row = 2, column = 2)
+        Entry(self.edit_window, textvariable = StringVar(self.edit_window, value = self.current_price), state = 'readonly').grid(row = 2, column = 2)
 
         # New Price label
         Label(self.edit_window, text = 'Enter the New Price').grid(row = 3, column = 1)
@@ -148,7 +148,7 @@ class Product:
         data = (current_name, new_name, current_price, new_price)
         self.execute_query(query, data)
         self.edit_window.destroy()
-        self.mesage['text'] = f'Product {self.name} has been update succesfuly'
+        self.mesage['text'] = f'Product {self.current_name} has been update succesfuly'
         self.obtain_product()
 
 if __name__ == '__main__':
