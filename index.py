@@ -152,7 +152,15 @@ class Product:
         self.message['text'] = f'Product {new_name} has been update succesfuly'
         self.obtain_product()
 
+
+class ProductApp:
+    '''Main Class '''
+
+    def run(self):
+
+        window = Tk()
+        application = Product(window)
+        window.mainloop()
+
 if __name__ == '__main__':
-    window = Tk()
-    application = Product(window)
-    window.mainloop()
+    ProductApp().run()
